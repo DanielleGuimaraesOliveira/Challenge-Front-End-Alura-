@@ -1,0 +1,41 @@
+#cabecalho{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+    padding: 26px;
+
+    background-color: black;
+
+}
+
+#nav-container{
+    width: 45%;
+
+    display: flex;
+    box-sizing: border-box;
+
+    
+    gap:40px;
+}
+
+#nav-logo{
+    width: 132px;
+    height: 32px;
+
+}
+
+#nav{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    
+    gap: 42px;
+}
+.nav-link a{
+    color: white;
+}
