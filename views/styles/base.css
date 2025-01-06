@@ -106,9 +106,6 @@
   #content #cabecalho #nav-container #menu-dropdown {
     display: block;
   }
-  #content #cabecalho #nav-container #menu-dropdown.ativo {
-    background-color: #cccccc;
-  }
   #content #cabecalho #nav-container #menu-dropdown #botao-menu-dropdown {
     background: transparent;
   }
@@ -118,6 +115,40 @@
   }
   #content #cabecalho #nav-container #menu-dropdown #nav-dropdown {
     display: none;
+  }
+  #content #cabecalho #nav-container #menu-dropdown.ativo {
+    min-width: 144px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    padding: 10px 15px;
+    top: 0;
+    background-color: #343A40;
+  }
+  #content #cabecalho #nav-container #menu-dropdown.ativo #botao-menu-dropdown {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+  #content #cabecalho #nav-container #menu-dropdown.ativo #botao-menu-dropdown img {
+    max-width: 30px;
+    height: auto;
+  }
+  #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 4px 8px;
+  }
+  #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown a {
+    font-family: Inter;
+    font-size: 1rem;
+    color: #fff;
+  }
+  #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown a:hover {
+    color: #daff01;
   }
 }
 #content #cabecalho #pesquisa {
