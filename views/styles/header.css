@@ -14,6 +14,7 @@
 #content #cabecalho {
   width: 100%;
   height: auto;
+  min-height: 58px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,6 +59,10 @@
 }
 #content #cabecalho #nav-container #nav .nav-link a {
   color: inherit;
+}
+#content #cabecalho #nav-container #nav .nav-link a:hover, #content #cabecalho #nav-container #nav .nav-link a:focus {
+  color: #daff01;
+  font-weight: 600;
 }
 @media (max-width: 1000px) {
   #content #cabecalho #nav-container #nav .nav-link {
@@ -123,8 +128,8 @@
     flex-direction: column;
     position: fixed;
     right: 0;
-    padding: 10px 15px;
     top: 0;
+    padding: 0.9rem 1.5rem;
     background-color: #343A40;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo #botao-menu-dropdown {
@@ -139,16 +144,20 @@
   #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    margin: 4px 8px;
+    gap: 0.5rem;
   }
-  #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown a {
+  #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown .border-bottom {
+    border-bottom: #CED4DA solid 1px;
+    padding-bottom: 0.5rem;
+  }
+  #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown .nav-link-dropdown a {
     font-family: Inter;
     font-size: 1rem;
     color: #fff;
   }
-  #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown a:hover {
+  #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown .nav-link-dropdown a:hover {
     color: #daff01;
+    font-weight: 600;
   }
 }
 #content #cabecalho #pesquisa {
@@ -169,6 +178,9 @@
   padding: 0.4rem 0.9rem;
   font-family: Inter;
 }
+#content #cabecalho #pesquisa #campo-pesquisa:focus {
+  outline: 1px solid #daff01;
+}
 @media (max-width: 1000px) {
   #content #cabecalho #pesquisa #campo-pesquisa {
     width: 45%;
@@ -184,6 +196,11 @@
   border: 1px solid white;
   font-family: Inter;
   font-size: 1rem;
+}
+#content #cabecalho #pesquisa #botao-pesquisar:focus {
+  color: #daff01;
+  font-weight: 600;
+  border-color: #daff01;
 }
 @media (max-width: 1000px) {
   #content #cabecalho #pesquisa #botao-pesquisar {

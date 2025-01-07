@@ -26,6 +26,7 @@ $laranja-meteora: #f87f46;
     #cabecalho{
         width: 100%;
         height: auto;
+        min-height: 58px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -72,7 +73,13 @@ $laranja-meteora: #f87f46;
                     
                     a{
                         color: inherit;
+
+                        &:hover, &:focus{
+                            color: $verde-meteora;
+                            font-weight: 600;
+                        }
                     }
+                    
 
                     @media(max-width: 1000px){
                         font-size: 0.9rem;
@@ -140,8 +147,8 @@ $laranja-meteora: #f87f46;
                         flex-direction: column;
                         position: fixed;
                         right: 0;
-                        padding: 10px 15px;
                         top: 0;
+                        padding: 0.9rem 1.5rem;
                         background-color: #343A40;
 
                         #botao-menu-dropdown{
@@ -158,19 +165,28 @@ $laranja-meteora: #f87f46;
                         #nav-dropdown{
                             display: flex;
                             flex-direction: column;
-                            gap: 1rem;
-                            margin: 4px 8px;
+                            gap: 0.5rem;
                             
+                            .border-bottom{
+                                border-bottom: #CED4DA solid 1px;
+                                padding-bottom:0.5rem ;
 
-                            a {
-                                font-family: Inter;
-                                font-size: 1rem;
-                                color: #fff;
+                            }
 
-                                &:hover{
-                                    color: $verde-meteora;
+                            .nav-link-dropdown{
+
+                                a {
+                                    font-family: Inter;
+                                    font-size: 1rem;
+                                    color: #fff;
+    
+                                    &:hover{
+                                        color: $verde-meteora;
+                                        font-weight: 600;
+                                    }
                                 }
                             }
+                            
                             
                         }
     
@@ -202,6 +218,11 @@ $laranja-meteora: #f87f46;
                 padding: 0.4rem 0.9rem;
                 font-family: Inter;
 
+                &:focus{
+                  outline: 1px solid $verde-meteora ;
+
+                }
+
                 @media (max-width: 1000px) {
                     width: 45%;
                     min-width: 157px;
@@ -220,6 +241,12 @@ $laranja-meteora: #f87f46;
                 border: 1px solid white;
                 font-family: Inter;
                 font-size: 1rem;
+
+                &:focus{
+                    color: $verde-meteora;
+                    font-weight: 600;
+                    border-color: $verde-meteora;
+                }
 
                 @media (max-width: 1000px) {
                     padding: 0.5rem 0.6rem;

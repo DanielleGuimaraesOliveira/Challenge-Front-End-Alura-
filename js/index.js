@@ -1,17 +1,17 @@
 function exibeMenu(){
     const NAV_DROPDOWN = document.getElementById("nav-dropdown");
 
-    NAV_DROPDOWN.innerHTML = `<li role="menuitem" class="nav-link">
-    <a href="index.html" aria-label="Ir para a página principal">Home</a>
+    NAV_DROPDOWN.innerHTML = `<li role="menuitem" class="nav-link-dropdown border-bottom">
+    <a href="index.html">Home</a>
 </li>
-<li role="menuitem" class="nav-link">
-    <a href="" aria-label="Ir para a página das nossas lojas">Nossas lojas</a>
+<li role="menuitem" class="nav-link-dropdown border-bottom">
+    <a href="">Nossas Lojas</a>
 </li>
-<li role="menuitem" class="nav-link">
-    <a href="" aria-label="Ir para a página de novidades">Novidades</a>
+<li role="menuitem" class="nav-link-dropdown border-bottom">
+    <a href="" >Novidades</a>
 </li>
-<li role="menuitem" class="nav-link">
-    <a href="" aria-label="Ir para a página de promoções">Promoções</a>
+<li role="menuitem" class="nav-link-dropdown">
+    <a href="" >Promoções</a>
 </li>`
 
 }
