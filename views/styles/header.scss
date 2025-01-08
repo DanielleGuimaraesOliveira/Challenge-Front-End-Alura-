@@ -1,5 +1,6 @@
 // cores primarias
 $preto: #000;
+
 $cinza-meteora: #cccccc;
 $verde-meteora: #daff01;
 $roxo-meteora: #9353ff;
@@ -7,6 +8,22 @@ $roxo-meteora: #9353ff;
 // cores secundarias
 $coral-meteora:#ee6471;
 $laranja-meteora: #f87f46;
+
+// tamanhos de fontes
+
+$fonte-family-primaria: 'Inter';
+$fonte-tamanho-padrao: 1rem;
+$fonte-tamanho-pequeno: 0.9rem;
+$fonte-tamanho-muito-pequeno: 0.81rem;
+
+// Reutilizáveis
+@mixin flex-box($direcao: row, $alinha: stretch, $justify: flex-start, $gap: 0) {
+    display: flex;
+    flex-direction: $direcao;
+    align-items: $alinha;
+    justify-content: $justify;
+    gap: $gap;
+  }
 
 @font-face {
     font-family: Inter;
@@ -22,33 +39,20 @@ $laranja-meteora: #f87f46;
 #content{
     width: 100vw;
     min-height: 100vh;
+    color: white;
 
     #cabecalho{
-        width: 100%;
-        height: auto;
-        min-height: 58px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex-box($alinha: center, $justify: space-between);
+        
         padding: 0.8rem 1.4rem;
         background-color: $preto;
-        color: #fff;
-
-        @media(max-width:1000) {
-            padding: 0.8rem 1.1rem;
-        }
 
         #nav-container{
-            width: 60%;
-            height: auto;
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
+            @include flex-box($alinha: center, $gap: 2.5rem );
 
+            width: 60%;
             
             #nav-logo{
-                width: 30%;
-                height: auto;
                 max-width: 132px;
 
                 @media(max-width: 1000px) {
@@ -56,20 +60,23 @@ $laranja-meteora: #f87f46;
                    min-width: 115px;
                     
                 }
+
+                @media(max-width: 760px) {
+                    width: 30%;
+                    min-width: 125px;
+                     
+                 }
                     
             }
 
             #nav{
-                height: auto;
-                display: flex;
-                align-items: center;
-                gap: 2.5rem;
+                @include flex-box($alinha: center, $gap: 2.5rem);
 
                 .nav-link{
                     text-wrap: nowrap;
                     text-align: center;
-                    font-family: Inter ;
-                    font-size: 1rem;
+                    font-family: $fonte-family-primaria ;
+                    font-size: $fonte-tamanho-padrao;
                     
                     a{
                         color: inherit;
@@ -80,14 +87,13 @@ $laranja-meteora: #f87f46;
                         }
                     }
                     
-
                     @media(max-width: 1000px){
-                        font-size: 0.9rem;
+                        font-size:$fonte-tamanho-pequeno;
                        
                      }
 
                      @media(max-width: 820px){
-                        font-size: 0.81rem;
+                        font-size: $fonte-tamanho-muito-pequeno;
                        
                      }
 
@@ -123,6 +129,8 @@ $laranja-meteora: #f87f46;
             @media(max-width: 760px) {
                 width: 100%;
                 justify-content: space-between;
+                min-height: 58px;
+                margin-bottom: 0.8rem;
 
                 #menu-dropdown{
                     display: block;
@@ -141,10 +149,9 @@ $laranja-meteora: #f87f46;
                     }
 
                     &.ativo{
+                        @include flex-box(column);
+
                         min-width: 144px;
-                        height: auto;
-                        display: flex;
-                        flex-direction: column;
                         position: fixed;
                         right: 0;
                         top: 0;
@@ -152,21 +159,18 @@ $laranja-meteora: #f87f46;
                         background-color: #343A40;
 
                         #botao-menu-dropdown{
+                            @include flex-box($justify: end);
+
                             width: 100%;   
-                            display: flex;
-                            justify-content: end;
 
                             img{
                                 max-width: 30px;
-                                height: auto;
                             }
                         }
 
                         #nav-dropdown{
-                            display: flex;
-                            flex-direction: column;
-                            gap: 0.5rem;
-                            
+                            @include flex-box(column, $gap: 0.5rem );
+
                             .border-bottom{
                                 border-bottom: #CED4DA solid 1px;
                                 padding-bottom:0.5rem ;
@@ -174,49 +178,39 @@ $laranja-meteora: #f87f46;
                             }
 
                             .nav-link-dropdown{
-
                                 a {
-                                    font-family: Inter;
-                                    font-size: 1rem;
-                                    color: #fff;
+                                    font-family: $fonte-family-primaria;
+                                    font-size: $fonte-tamanho-padrao;
+                                    color: inherit;
     
                                     &:hover{
                                         color: $verde-meteora;
                                         font-weight: 600;
                                     }
+
                                 }
+
                             }
-                            
                             
                         }
     
                     }
 
-                    
                 }
+
             }
-
-
-            
 
         }
 
         #pesquisa{
-            display: flex;
-            justify-content: end;
-            gap: 1rem;
-
-            @media (max-width: 760px) {
-                display: none;
-            }
+            @include flex-box($justify: end, $gap: 1rem);
 
             #campo-pesquisa{
                 width: 50%;
                 min-width: 170px;
-                height: auto;
                 min-height: 38px;
                 padding: 0.4rem 0.9rem;
-                font-family: Inter;
+                font-family: $fonte-family-primaria;
 
                 &:focus{
                   outline: 1px solid $verde-meteora ;
@@ -226,11 +220,24 @@ $laranja-meteora: #f87f46;
                 @media (max-width: 1000px) {
                     width: 45%;
                     min-width: 157px;
-                    font-size: 0.9rem;
+                    font-size: $fonte-tamanho-pequeno;
                     padding: 0.3rem 0.8rem;
 
                 }
-                
+
+                @media (max-width: 760px) {
+                    outline: 1px $preto solid;
+                    flex-basis: 60%;
+                    min-width: 157px;
+                    margin-right: 0.5rem;
+                    padding: 0.3rem 0.8rem;
+
+                }
+
+                @media (max-width: 500px) {
+                    flex-basis: 70%;
+
+                }
                 
             }
 
@@ -239,8 +246,8 @@ $laranja-meteora: #f87f46;
                 background-color: transparent;
                 color: inherit;
                 border: 1px solid white;
-                font-family: Inter;
-                font-size: 1rem;
+                font-family: $fonte-family-primaria;
+                font-size: $fonte-tamanho-padrao;
 
                 &:focus{
                     color: $verde-meteora;
@@ -250,10 +257,44 @@ $laranja-meteora: #f87f46;
 
                 @media (max-width: 1000px) {
                     padding: 0.5rem 0.6rem;
-                    font-size: 0.9rem;
+                    font-size: $fonte-tamanho-pequeno;
+                }
+
+                @media (max-width: 760px) {
+                    
+                    border: 1px solid $preto;
+                    color: $preto;
+                    font-weight: 600;
+
+                }
+
+                 @media (max-width: 500px) {
+                    flex-grow: 1;
                 }
 
             }
+
+            @media (max-width: 760px) {
+                @include flex-box($justify: center);
+
+                background-color: rgb(255, 255, 255);
+                width: 100vw;
+                min-height: 86px;
+                padding: 1.5rem 1.7rem;
+                
+            }
         }
+
+        @media(max-width:1000) {
+            padding: 0.8rem 1.1rem;
+        }
+
+        @media (max-width: 760px) {
+            flex-direction: column;
+            padding: 0.8rem 1.4rem 0rem 1.4rem;
+            
+        }
+        
     }
+
 }

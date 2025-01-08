@@ -10,33 +10,26 @@
 #content {
   width: 100vw;
   min-height: 100vh;
+  color: white;
 }
 #content #cabecalho {
-  width: 100%;
-  height: auto;
-  min-height: 58px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  gap: 0;
   padding: 0.8rem 1.4rem;
   background-color: #000;
-  color: #fff;
-}
-@media (max-width: 1000) {
-  #content #cabecalho {
-    padding: 0.8rem 1.1rem;
-  }
 }
 #content #cabecalho #nav-container {
-  width: 60%;
-  height: auto;
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   gap: 2.5rem;
+  width: 60%;
 }
 #content #cabecalho #nav-container #nav-logo {
-  width: 30%;
-  height: auto;
   max-width: 132px;
 }
 @media (max-width: 1000px) {
@@ -45,16 +38,23 @@
     min-width: 115px;
   }
 }
+@media (max-width: 760px) {
+  #content #cabecalho #nav-container #nav-logo {
+    width: 30%;
+    min-width: 125px;
+  }
+}
 #content #cabecalho #nav-container #nav {
-  height: auto;
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   gap: 2.5rem;
 }
 #content #cabecalho #nav-container #nav .nav-link {
   text-wrap: nowrap;
   text-align: center;
-  font-family: Inter;
+  font-family: "Inter";
   font-size: 1rem;
 }
 #content #cabecalho #nav-container #nav .nav-link a {
@@ -107,6 +107,8 @@
   #content #cabecalho #nav-container {
     width: 100%;
     justify-content: space-between;
+    min-height: 58px;
+    margin-bottom: 0.8rem;
   }
   #content #cabecalho #nav-container #menu-dropdown {
     display: block;
@@ -122,10 +124,12 @@
     display: none;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo {
-    min-width: 144px;
-    height: auto;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    min-width: 144px;
     position: fixed;
     right: 0;
     top: 0;
@@ -133,17 +137,21 @@
     background-color: #343A40;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo #botao-menu-dropdown {
-    width: 100%;
     display: flex;
+    flex-direction: row;
+    align-items: stretch;
     justify-content: end;
+    gap: 0;
+    width: 100%;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo #botao-menu-dropdown img {
     max-width: 30px;
-    height: auto;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
     gap: 0.5rem;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown .border-bottom {
@@ -151,9 +159,9 @@
     padding-bottom: 0.5rem;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown .nav-link-dropdown a {
-    font-family: Inter;
+    font-family: "Inter";
     font-size: 1rem;
-    color: #fff;
+    color: inherit;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown .nav-link-dropdown a:hover {
     color: #daff01;
@@ -162,21 +170,17 @@
 }
 #content #cabecalho #pesquisa {
   display: flex;
+  flex-direction: row;
+  align-items: stretch;
   justify-content: end;
   gap: 1rem;
-}
-@media (max-width: 760px) {
-  #content #cabecalho #pesquisa {
-    display: none;
-  }
 }
 #content #cabecalho #pesquisa #campo-pesquisa {
   width: 50%;
   min-width: 170px;
-  height: auto;
   min-height: 38px;
   padding: 0.4rem 0.9rem;
-  font-family: Inter;
+  font-family: "Inter";
 }
 #content #cabecalho #pesquisa #campo-pesquisa:focus {
   outline: 1px solid #daff01;
@@ -189,12 +193,26 @@
     padding: 0.3rem 0.8rem;
   }
 }
+@media (max-width: 760px) {
+  #content #cabecalho #pesquisa #campo-pesquisa {
+    outline: 1px #000 solid;
+    flex-basis: 60%;
+    min-width: 157px;
+    margin-right: 0.5rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+@media (max-width: 500px) {
+  #content #cabecalho #pesquisa #campo-pesquisa {
+    flex-basis: 70%;
+  }
+}
 #content #cabecalho #pesquisa #botao-pesquisar {
   padding: 0.5rem 0.7rem;
   background-color: transparent;
   color: inherit;
   border: 1px solid white;
-  font-family: Inter;
+  font-family: "Inter";
   font-size: 1rem;
 }
 #content #cabecalho #pesquisa #botao-pesquisar:focus {
@@ -207,4 +225,40 @@
     padding: 0.5rem 0.6rem;
     font-size: 0.9rem;
   }
-}/*# sourceMappingURL=base.css.map */
+}
+@media (max-width: 760px) {
+  #content #cabecalho #pesquisa #botao-pesquisar {
+    border: 1px solid #000;
+    color: #000;
+    font-weight: 600;
+  }
+}
+@media (max-width: 500px) {
+  #content #cabecalho #pesquisa #botao-pesquisar {
+    flex-grow: 1;
+  }
+}
+@media (max-width: 760px) {
+  #content #cabecalho #pesquisa {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0;
+    background-color: rgb(255, 255, 255);
+    width: 100vw;
+    min-height: 86px;
+    padding: 1.5rem 1.7rem;
+  }
+}
+@media (max-width: 1000) {
+  #content #cabecalho {
+    padding: 0.8rem 1.1rem;
+  }
+}
+@media (max-width: 760px) {
+  #content #cabecalho {
+    flex-direction: column;
+    padding: 0.8rem 1.4rem 0rem 1.4rem;
+  }
+}/*# sourceMappingURL=header.css.map */
