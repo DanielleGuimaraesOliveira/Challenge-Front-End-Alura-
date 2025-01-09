@@ -91,6 +91,7 @@
 }
 #content #cabecalho #nav-container #menu-dropdown {
   display: none;
+  transition: all 0.2s ease;
 }
 @media (max-width: 1000px) {
   #content #cabecalho #nav-container {
@@ -118,10 +119,13 @@
   }
   #content #cabecalho #nav-container #menu-dropdown #botao-menu-dropdown img {
     max-width: 30px;
-    height: auto;
   }
   #content #cabecalho #nav-container #menu-dropdown #nav-dropdown {
     display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    visibility: hidden;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo {
     display: flex;
@@ -153,6 +157,9 @@
     align-items: stretch;
     justify-content: flex-start;
     gap: 0.5rem;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
   }
   #content #cabecalho #nav-container #menu-dropdown.ativo #nav-dropdown .border-bottom {
     border-bottom: #CED4DA solid 1px;
@@ -183,7 +190,7 @@
   font-family: "Inter";
 }
 #content #cabecalho #pesquisa #campo-pesquisa:focus {
-  outline: 1px solid #daff01;
+  outline: 2px solid #daff01;
 }
 @media (max-width: 1000px) {
   #content #cabecalho #pesquisa #campo-pesquisa {
@@ -215,10 +222,10 @@
   font-family: "Inter";
   font-size: 1rem;
 }
-#content #cabecalho #pesquisa #botao-pesquisar:focus {
+#content #cabecalho #pesquisa #botao-pesquisar:hover, #content #cabecalho #pesquisa #botao-pesquisar:focus {
   color: #daff01;
   font-weight: 600;
-  border-color: #daff01;
+  border: 2px #daff01 solid;
 }
 @media (max-width: 1000px) {
   #content #cabecalho #pesquisa #botao-pesquisar {

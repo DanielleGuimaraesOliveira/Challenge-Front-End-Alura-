@@ -115,6 +115,7 @@ $fonte-tamanho-muito-pequeno: 0.81rem;
 
             #menu-dropdown{
                 display: none;
+                transition: all 0.2s ease;
             }
 
             @media(max-width: 1000px) {
@@ -140,12 +141,15 @@ $fonte-tamanho-muito-pequeno: 0.81rem;
                         
                         img{
                             max-width: 30px;
-                            height: auto;
                         }
                     }
                     
                     #nav-dropdown{
                         display: none;
+                        opacity: 0;
+                        transform: translateY(-10px);
+                        transition: all 0.3s ease;
+                        visibility: hidden;
                     }
 
                     &.ativo{
@@ -170,6 +174,9 @@ $fonte-tamanho-muito-pequeno: 0.81rem;
 
                         #nav-dropdown{
                             @include flex-box(column, $gap: 0.5rem );
+                            opacity: 1;
+                            transform: translateY(0);
+                            visibility: visible;
 
                             .border-bottom{
                                 border-bottom: #CED4DA solid 1px;
@@ -213,7 +220,7 @@ $fonte-tamanho-muito-pequeno: 0.81rem;
                 font-family: $fonte-family-primaria;
 
                 &:focus{
-                  outline: 1px solid $verde-meteora ;
+                  outline: 2px solid $verde-meteora ;
 
                 }
 
@@ -249,10 +256,10 @@ $fonte-tamanho-muito-pequeno: 0.81rem;
                 font-family: $fonte-family-primaria;
                 font-size: $fonte-tamanho-padrao;
 
-                &:focus{
+                &:hover, &:focus{
                     color: $verde-meteora;
                     font-weight: 600;
-                    border-color: $verde-meteora;
+                    border: 2px $verde-meteora solid;
                 }
 
                 @media (max-width: 1000px) {
